@@ -1,6 +1,6 @@
 #include <cuda_runtime.h>
 
-// idx 和 N-idx
+// simple one, you just need half of the threads to swap the array
 __global__ void reverse_array(float* input, int N) {
     int idx = blockIdx.x * blockDim.x + threadIdx.x;
     if(idx<N / 2){
@@ -10,6 +10,8 @@ __global__ void reverse_array(float* input, int N) {
         input[N-idx-1] = tmp;
     }
 }
+
+
 
 // input is device pointer
 extern "C" void solve(float* input, int N) {
