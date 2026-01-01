@@ -16,6 +16,9 @@ TILE和BLOCK的大小选取是一个性能调优(Tuning)和硬件限制(Hardware
 - 对于Block size
     1. 保证block足够覆盖C的每一行与每一列(Total + threadsPerBlock -1)/threadsPerBlock是标准的向上取整
 
+### 进阶版
+
+
 
 
 
