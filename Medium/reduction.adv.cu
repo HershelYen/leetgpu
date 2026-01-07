@@ -3,7 +3,7 @@
 #define STRIDE 8
 #define WARP_SIZE 32
 #define NUM_BLOCK (THREADS*STRIDE)
-#define ceil(a, b) ((a)+(b)-1)/(b)
+#define DIV_CEIL(a, b) ((a)+(b)-1)/(b)
 __device__ void warp_reduce(volatile float *sdata, int tid){
         sdata[tid] += sdata[tid + 32];
         sdata[tid] += sdata[tid + 16];
@@ -55,7 +55,7 @@ __global__ void reduction_kernel(const float* input, float* output, int N){
 // input, output are device pointers
 extern "C" void solve(const float* input, float* output, int N) {
     int threadsPerBlock = THREADS;
-    int blockPerGrid = ceil(N, NUM_BLOCK);
+    int blockPerGrid = DIV_CEIL(N, NUM_BLOCK);
     // cudaMemset(output, 0, sizeof(float));
     // 启动kernel
     reduction_kernel<<<blockPerGrid, threadsPerBlock>>>(input, output, N);
