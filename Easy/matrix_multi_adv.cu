@@ -1,3 +1,4 @@
+// 以下代码为FascinatingChampion1227编写，使用双缓冲技术优化矩阵乘法的CUDA内核实现。
 #include <cuda_runtime.h>
 
 #define CEIL(a, b) ((a + b - 1) / b)

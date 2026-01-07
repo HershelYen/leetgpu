@@ -1,0 +1,23 @@
+#include <cuda_runtime.h>
+
+__global__ void matrix_add(const float* A, const float* B, float* C, int N) {
+    
+    // get index
+    int idx = blockIdx.x * blockDim.x + threadIdx.x;
+    int m_size = N * N;
+    // 边界条件
+    if(idx < m_size){
+        // 读数据
+        C[idx] = A[idx]+B[idx];
+        
+    } 
+}
+
+// A, B, C are device pointers (i.e. pointers to memory on the GPU)
+extern "C" void solve(const float* A, const float* B, float* C, int N) {
+    int threadsPerBlock = 256;
+    int blocksPerGrid = (N * N + threadsPerBlock - 1) / threadsPerBlock;
+
+    matrix_add<<<blocksPerGrid, threadsPerBlock>>>(A, B, C, N);
+    cudaDeviceSynchronize();
+}

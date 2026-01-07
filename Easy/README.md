@@ -4,6 +4,8 @@
 A B 对应位置相加，然后写入C对应位置
 
 ## Matrix multiplication
+关于矩阵乘法需要掌握最基础的tile分块方法，可以用绘图法搞清每个idx位置。
+
 
 ### 基础版
 采用分tile的方式进行计算，可以画图理解一下，计算Tile x Tile大小的 C 矩阵，需要A的Tile 行 和 B 的 Tile 列。同时对A和B的N维度也进行分块处理，想清楚C对应位置需要A和B哪些数据。要记得边界补0
@@ -22,7 +24,13 @@ TILE和BLOCK的大小选取是一个性能调优(Tuning)和硬件限制(Hardware
 
 
 
+## Matrix Addition
 
+None
+
+## ReLU
+
+None
 
 
 ## Reverse Array

@@ -2,6 +2,8 @@
 
 欢迎来到 **LeetGPU** 代码仓库！
 
+![Static Badge](https://img.shields.io/badge/updating-green)
+
 本项目汇集了我对 LeetCode 算法题目的个人解答与探索。建立这个仓库的初衷不仅是记录代码，更是为了深入研究不同难度题目下的**性能优化**与**解题思路**。
 
 ## 📂 仓库结构 | Repository Structure
